@@ -6,14 +6,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import {CSS3DObject, CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer'
 
-const htmlContent = [
-    <>Front</>,
-    <>Right</>,
-    <>Left</>,
-    <>Back</>,
-    <>Top</>,
-    <>Bottom</>,
-];
+import htmlContent from './htmlContent'
 
 const getContainer = ()=>document.querySelector('#viewer');
 export default function Cube(){
@@ -33,15 +26,17 @@ export default function Cube(){
 
 let camera, scene, renderer, controls;
 let domContainer;
-let cameraPosition = 1000;
+let cameraPosition ; // undefined
 
 function initialize(container){
     domContainer = container;
-    camera = new THREE.PerspectiveCamera(75,domContainer.offsetWidth / domContainer.offsetHeight,0.1,1000);
-    camera.position.z = cameraPosition;
+    let width = domContainer.offsetWidth;
+    let height = domContainer.offsetHeight;
+    camera = new THREE.PerspectiveCamera(75,width / height,0.1,1000);
+    camera.position.z = cameraPosition || 800000/(Math.min(width, height));
 
     renderer = new CSS3DRenderer();
-    renderer.setSize( domContainer.offsetWidth, domContainer.offsetHeight );
+    renderer.setSize( width, height );
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.top = 0;
 
@@ -76,7 +71,6 @@ function addObjects(){
         return object
     })
 }
-
 function createElements(){
     let elements = htmlContent.map(html=>{
         let div = document.createElement('div')
