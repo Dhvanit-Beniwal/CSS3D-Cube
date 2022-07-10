@@ -1,0 +1,17 @@
+#viewer{
+    position: relative;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    background-color:#222325;
+}
+
+.face{
+    background-color:#303134;
+    color: white;
+    width: 600px;
+    height: 600px;
+    opacity: 0.8;
+    padding: 20px;
+    border-radius: 10px;
+}
