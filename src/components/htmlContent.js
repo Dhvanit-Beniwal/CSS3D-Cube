@@ -1,6 +1,7 @@
 import './htmlContent.css'
 import React from "react";
 
+const tictactoeURL = '/~200050035/#/TicTacToe';
 
 // [front,right,left,back,top,bottom]
 const htmlContent = [
@@ -19,11 +20,11 @@ const htmlContent = [
         </div>
     </>,
     <>
-        <iframe src='https://homepages.iitb.ac.in/~200050035/' width="570px" height="570px" title='Tic-Tac-Toe' />
+        <iframe src={tictactoeURL} width="580px" height="580px" title='Tic-Tac-Toe' />
     </>,
     <>
         Website made using ReactJs. <br/>
-        (The Tic-Tac-Toe game is a <a href='https://homepages.iitb.ac.in/~200050035/'>separate project</a> embedded in an iframe) <br/>
+        (The Tic-Tac-Toe game is a <a href={tictactoeURL}>separate project</a> embedded in an iframe) <br/>
         3D-rendering done with the help of <a href='https://threejs.org/docs/#examples/en/renderers/CSS3DRenderer'>three.js</a> .<br/>
         It makes use of the 'transform' style attribute of html elements, and therefore no canvas or WebGL context is used.<br /><br />
         <a href='https://github.com/Dhvanit-Beniwal/CSS3D-Cube'>Source Code</a><br/><br/>
