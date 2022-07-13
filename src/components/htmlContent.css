@@ -6,3 +6,29 @@ a{
 iframe{
     border: none;
 }
+
+.left{
+    align-self: flex-start;
+}
+
+.right{
+    align-self: flex-end;
+}
+
+.text{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: darkslategrey;
+}
+
+.text-container{
+    width: 400px;
+    height: 500px;
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #303134, #222325 30%, #222325 70%, #303134 99%);
+}

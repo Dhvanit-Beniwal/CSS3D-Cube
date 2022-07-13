@@ -12,11 +12,11 @@ const htmlContent = [
         </div>
     </>,
     <>
-        <div style={{width:'300px'}}>
-            <div style={{textAlign:'left'}}>So how did you make this?</div>
-            <div style={{textAlign:'right'}}>Does that mean you like it?</div>
-            <div style={{textAlign:'left'}}>why*</div>
-            <div style={{textAlign:'left'}}>... get a life</div>
+        <div className='text-container'>
+            <div className='left text'>So how did you make this?</div>
+            <div className='right text'>Does that mean you like it?</div>
+            <div className='left text'>Why*</div>
+            <div className='left text'>... get a life</div>
         </div>
     </>,
     <>
