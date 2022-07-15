@@ -32,3 +32,38 @@ iframe{
     flex-direction: column;
     background-image: linear-gradient(to bottom, #303134, #222325 30%, #222325 70%, #303134 99%);
 }
+
+.quote{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    padding: 0 100px 0 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@property --a{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.spiral{
+    width: 80%;
+    height: 80%;
+    border-radius: 35%;
+    animation: rotate 5s infinite linear, spiral 3s infinite linear;
+    --a:0deg;
+    background-image: conic-gradient(from var(--a), #3e4759, #303134, #222325);
+}
+
+@keyframes rotate {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+@keyframes spiral {
+    0%{--a:360deg}
+    100%{--a:0deg}
+}

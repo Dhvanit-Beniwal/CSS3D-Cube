@@ -6,7 +6,7 @@ const tictactoeURL = '/~200050035/#/TicTacToe';
 // [front,right,left,back,top,bottom]
 const htmlContent = [
     <>
-        <div style={{width:'300px'}}>
+        <div className='quote'>
             There will eventually come a day when I won't have to fill all these faces with filler text. 
             But today is not that day
         </div>
@@ -39,7 +39,8 @@ const htmlContent = [
         </div>
     </>,
     <>
-        <iframe src='https://www.youtube.com/embed/dQw4w9WgXcQ' width="50px" height="50px" title='Rick-roll' />
+        {/* <iframe src='https://www.youtube.com/embed/dQw4w9WgXcQ' width="50px" height="50px" title='Rick-roll' /> */}
+        <div className='spiral'></div>
     </>
 ];
 
