@@ -42,6 +42,8 @@ function initialize(container){
 
     controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = -1.5;
 
     scene = new THREE.Scene()
 
@@ -51,8 +53,8 @@ function initialize(container){
     window.addEventListener('resize', onWindowResize, false)
 }
 function animate(){
-    renderer.render(scene, camera);
     controls.update();
+    renderer.render(scene, camera);
     requestAnimationFrame(animate);
 }
 function terminate(){
@@ -63,13 +65,16 @@ function terminate(){
 function addObjects(){
     let elements = createElements();
     
+    let cube = new THREE.Group();
+    cube.name = 'cube';
     elements.map(element=>{
         let object = new CSS3DObject(element.dom);
         object.position.copy( element.pos );
         object.rotation.copy( element.rot );
-        scene.add(object)
+        cube.add(object)
         return object
     })
+    scene.add(cube)
 }
 function createElements(){
     let elements = htmlContent.map(html=>{
