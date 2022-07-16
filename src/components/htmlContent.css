@@ -44,26 +44,112 @@ iframe{
     justify-content: center;
 }
 
-@property --a{
-    syntax: '<angle>';
-    inherits: false;
-    initial-value: 0deg;
-}
-
-.spiral{
+.background{
     width: 80%;
     height: 80%;
-    border-radius: 35%;
-    animation: rotate 5s infinite linear, spiral 3s infinite linear;
-    --a:0deg;
-    background-image: conic-gradient(from var(--a), #3e4759, #303134, #222325);
+    border-radius: 50%;
+    animation: rotate 5s infinite linear;
+    background-image: conic-gradient(from 0deg, #303134, #222325);
 }
-
 @keyframes rotate {
     0%{transform: rotate(0deg);}
     100%{transform: rotate(360deg);}
 }
-@keyframes spiral {
-    0%{--a:360deg}
-    100%{--a:0deg}
+
+
+.big-circle{
+    position:relative;
+    width:80%;
+    height:80%;
+    background-color:#222325; 
+    border-radius:50%;
+}
+
+.path{
+    position:relative;
+    top:50%;
+}
+
+.dot{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: 
+        backandforth 3s alternate infinite cubic-bezier(0.3633802276324187, 0, 0.6366197723675813, 1),
+        appeardisappear 12s infinite
+    ;
+}
+
+@keyframes appeardisappear {
+    0%{opacity: 0; }
+    10%{opacity: 0;}
+    12.5%{opacity: 1;}
+    87.5%{opacity: 1;}
+    90%{opacity: 0;}
+    100%{opacity: 0;}
+}
+
+@keyframes backandforth {
+    0%{left: 0%;}
+    100%{left: 100%;}
+}
+
+.path:nth-child(1){
+    transform: rotate(0deg);
+}
+.path:nth-child(1)>.dot{
+    animation-delay: 0s;
+}
+
+.path:nth-child(2){
+    transform: rotate(22.5deg);
+}
+.path:nth-child(2)>.dot{
+    animation-delay: 0.375s;
+}
+
+.path:nth-child(3){
+    transform: rotate(45deg);
+}
+.path:nth-child(3)>.dot{
+    animation-delay: 0.75s;
+}
+
+.path:nth-child(4){
+    transform: rotate(67.5deg);
+}
+.path:nth-child(4)>.dot{
+    animation-delay: 1.125s;
+}
+
+.path:nth-child(5){
+    transform: rotate(90deg);
+}
+.path:nth-child(5)>.dot{
+    animation-delay: 1.5s;
+}
+
+.path:nth-child(6){
+    transform: rotate(112.5deg);
+}
+.path:nth-child(6)>.dot{
+    animation-delay: 1.875s;
+}
+
+.path:nth-child(7){
+    transform: rotate(135deg);
+}
+.path:nth-child(7)>.dot{
+    animation-delay: 2.25s;
+}
+
+.path:nth-child(8){
+    transform: rotate(157.5deg);
+}
+.path:nth-child(8)>.dot{
+    animation-delay: 2.625s;
 }

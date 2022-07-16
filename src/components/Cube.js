@@ -43,7 +43,7 @@ function initialize(container){
     controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true
     controls.autoRotate = true;
-    controls.autoRotateSpeed = -1.5;
+    controls.autoRotateSpeed = -1;
 
     scene = new THREE.Scene()
 
