@@ -1,5 +1,6 @@
 import './htmlContent.css'
 import './animations/rolling_circle.css'
+import './animations/spiral_squares.css'
 import React from "react";
 
 const tictactoeURL = '/~200050035/#/TicTacToe';
@@ -22,22 +23,29 @@ const htmlContent = [
         </div>
     </>,
     <>
-        <div className='background' style={{position:'absolute', zIndex:'-1'}}></div>
-        <div style={{width:'400px', textAlign:'justify'}}>
-            I don't know why you wouldn't already realise this by now,
-            but yes you can interact with this cube. <br/>Orbit, Translate and zoom using:<br/>
-            Left click, right click and scroll (on a mouse)<br/>
-            (On touch, use one and two fingers)
+        <div className='container'>
+            <div className='square' />
+            <div className='square' />
+            <div className='square' />
+            <div className='square' />
+            <div className='square' />
+            <div className='square' />
+            <div className='square' />
+            <div className='square' />
+            <div className='square' />
+            <div className='square' />
         </div>
     </>,
     <>
         <div className='background' style={{position:'absolute', zIndex:'-1'}}></div>
-        Website made using ReactJs. <br/>
-        (The Tic-Tac-Toe game is a <a href={tictactoeURL}>separate project</a> embedded in an iframe) <br/>
-        3D-rendering done with the help of <a href='https://threejs.org/docs/#examples/en/renderers/CSS3DRenderer'>three.js</a> .<br/>
-        It makes use of the 'transform' style attribute of html elements, and therefore no canvas or WebGL context is used.<br /><br />
-        <a href='https://github.com/Dhvanit-Beniwal/CSS3D-Cube'>Source Code</a><br/><br/>
-        ( I know these links are not clickable, haven't figured it out yet )
+        Written in ReactJs, 3D rendering with <a href='https://threejs.org/docs/#examples/en/renderers/CSS3DRenderer'>three.js</a>. Animations use CSS keyframes.<br/>
+        three.js here makes use of the 'transform' style attribute of html elements.<br />
+        The <a href={tictactoeURL}>Tic-Tac-Toe</a> game is client side JavaScript for player vs computer <br/>
+        <br /><a href='https://github.com/Dhvanit-Beniwal/CSS3D-Cube'>Source Code</a><br/><br/>
+        Orbit, Translate and zoom (Interact with the cube) using:<br/>
+            Left click, right click and scroll (on a mouse)<br/>
+            (On touch, use one and two fingers)<br/>
+        ( Hyperlinks are not mouse-clickable, haven't figured it out yet )
     </>,
     <>
         <iframe src={tictactoeURL} width="580px" height="580px" title='Tic-Tac-Toe' />
