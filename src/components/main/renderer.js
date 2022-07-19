@@ -1,5 +1,3 @@
-import './Cube.css'
-import React from 'react'
 import * as ReactDOMServer from 'react-dom/server';
 
 import * as THREE from 'three'
@@ -7,22 +5,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import {CSS3DObject, CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer'
 
 import htmlContent from './htmlContent'
-
-const getContainer = ()=>document.querySelector('#viewer');
-export default function Cube(){
-    React.useEffect(()=>{
-        initialize(getContainer());
-        animate();
-        return ()=>{
-            terminate();
-        }
-    }, [])
-    return (
-        <>
-            <div id="viewer"></div>
-        </>
-    )
-}
 
 let camera, scene, renderer, controls;
 let domContainer;
@@ -42,7 +24,7 @@ function initialize(container){
 
     controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true
-    controls.autoRotate = true;
+    // controls.autoRotate = true;
     controls.autoRotateSpeed = -2;
 
     scene = new THREE.Scene()
@@ -111,3 +93,5 @@ function onWindowResize() {
     camera.updateProjectionMatrix()
     renderer.setSize(domContainer.offsetWidth, domContainer.offsetHeight)
 }
+
+export {initialize, animate, terminate}

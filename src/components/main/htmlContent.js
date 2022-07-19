@@ -1,6 +1,6 @@
 import './htmlContent.css'
-import './animations/rolling_circle.css'
-import './animations/spiral_squares.css'
+import '../animations/rolling_circle.css'
+import '../animations/spiral_squares.css'
 import React from "react";
 
 const tictactoeURL = '/~200050035/#/TicTacToe';

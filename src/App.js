@@ -1,6 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Cube from './components/Cube';
+import Cube from './components/main/Cube';
 import TicTacToe from './components/TicTacToe/main';
 
 function App() {
