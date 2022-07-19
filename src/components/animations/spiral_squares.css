@@ -13,9 +13,10 @@
     left: 50%;
     transform: translate(-50%,-50%);
 
-    width: 1%;
-    height: 1%;
-    border: 1px solid;
+    width: 1.5%;
+    height: 1.5%;
+    /* border: 1px solid; */
+    background-image: radial-gradient(transparent 50%, var(--bluishGrey));
 
     visibility: hidden;
 
