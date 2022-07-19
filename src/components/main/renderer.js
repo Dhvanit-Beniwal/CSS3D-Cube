@@ -9,9 +9,11 @@ import htmlContent from './htmlContent'
 let camera, scene, renderer, controls;
 let domContainer;
 let cameraPosition ; // undefined
+let domComponents;
 
-function initialize(container){
+function initialize(container, components){
     domContainer = container;
+    domComponents = components;
     let width = domContainer.offsetWidth;
     let height = domContainer.offsetHeight;
     camera = new THREE.PerspectiveCamera(75,width / height,0.1,1000);
@@ -24,8 +26,8 @@ function initialize(container){
 
     controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true
-    // controls.autoRotate = true;
-    controls.autoRotateSpeed = -2;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = -1.5;
 
     scene = new THREE.Scene()
 
@@ -65,6 +67,12 @@ function createElements(){
         div.className = 'face'
         return {dom: div, pos: undefined, rot: undefined}
     })
+
+    if(domComponents.tictactoe){
+        let div = document.createElement('div'); div.className = 'face';
+        div.appendChild(domComponents.tictactoe);
+        elements[4].dom = div;
+    };
 
     elements[0].pos = new THREE.Vector3( 0, 0, 350 );
     elements[0].rot = new THREE.Euler( 0, 0, 0 )

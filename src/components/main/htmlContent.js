@@ -48,7 +48,7 @@ const htmlContent = [
         ( Hyperlinks are not mouse-clickable, haven't figured it out yet )
     </>,
     <>
-        <iframe src={tictactoeURL} width="580px" height="580px" title='Tic-Tac-Toe' />
+        {/* <iframe src={tictactoeURL} width="580px" height="580px" title='Tic-Tac-Toe' /> */}
     </>,
     <>
         {/* <iframe src='https://www.youtube.com/embed/dQw4w9WgXcQ' width="50px" height="50px" title='Rick-roll' /> */}

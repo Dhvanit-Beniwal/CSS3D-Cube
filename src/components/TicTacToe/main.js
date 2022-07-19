@@ -5,7 +5,7 @@ import nextMoveIndices from './Logic'
 
 const initialBoardState = ['none','none','none','none','none','none','none','none','none'];
 
-export default function TicTacToe(props){
+export default React.forwardRef((props, ref)=>{
     
     const [boardState, setBoardState] = React.useState(initialBoardState);
     const [userMarker, setUserMarker] = React.useState('x')
@@ -69,7 +69,7 @@ export default function TicTacToe(props){
     
     return (
         <>
-            <div className='main-container'>
+            <div className='main-container' ref={ref}>
                 <div className='logo-container flex-center'>
                     <div className='forward-slash'></div>
                     <O />
@@ -98,7 +98,7 @@ export default function TicTacToe(props){
             </div>
         </>
     )
-}
+})
 
 function Lines(){
     return(
@@ -130,7 +130,7 @@ function O(){
 
 function Boxes(props){
     const boxElements = props.boardState.map((state,index) => (
-        <div className="box" key={index} id={index} onClick={()=>{props.handleClick(index)}}>{{
+        <div className="box" key={index} id={index} onPointerDown={()=>{props.handleClick(index)}}>{{
             none: '',
             x: <X />,
             o: <O />,
@@ -154,11 +154,11 @@ function ButtonsTop(props){
             </div>
             <div 
                 className={"choice flex-center" + (props.isUserFirst? " mark-selected" :"")} 
-                onClick={()=>{if(!props.isUserFirst){props.switchStartingPlayer()}}}
+                onPointerDown={()=>{if(!props.isUserFirst){props.switchStartingPlayer()}}}
             >Yes</div>
             <div 
                 className={"choice flex-center" + (!props.isUserFirst? " mark-selected" :"")} 
-                onClick={()=>{if(props.isUserFirst){props.switchStartingPlayer()}}}
+                onPointerDown={()=>{if(props.isUserFirst){props.switchStartingPlayer()}}}
 
             >No</div>
         </div>
@@ -169,13 +169,13 @@ function ButtonsBottom(props){
         <div className="flex-center panel">
             <div 
                 className={"choice flex-center" + (props.userMarker === 'x'? " mark-selected" :"")} 
-                onClick={()=>{if(props.userMarker === 'o'){props.changeMarker()}}}
+                onPointerDown={()=>{if(props.userMarker === 'o'){props.changeMarker()}}}
                 style={{borderColor:"#ff7c3a", color:"#ff7c3a"}}
             >X</div>
-            <div className='button flex-center' onClick={props.reset}>Restart Game</div>
+            <div className='button flex-center' onPointerDown={props.reset}>Restart Game</div>
             <div 
                 className={"choice flex-center" + (props.userMarker === 'o'? " mark-selected" :"")} 
-                onClick={()=>{if(props.userMarker === 'x'){props.changeMarker()}}}
+                onPointerDown={()=>{if(props.userMarker === 'x'){props.changeMarker()}}}
                 style={{borderColor:"#38d383", color:"#38d383"}}
             >O</div>
         </div>

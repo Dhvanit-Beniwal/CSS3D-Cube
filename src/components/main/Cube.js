@@ -2,10 +2,16 @@ import './Cube.css'
 import React from 'react'
 import { initialize, animate, terminate } from './renderer';
 
-const getContainer = ()=>document.querySelector('#viewer');
+import TicTacToe from '../TicTacToe/main';
+
 export default function Cube(){
+    const tictactoeRef = React.useRef();
     React.useEffect(()=>{
-        initialize(getContainer());
+        let container = document.querySelector('#viewer');
+        let components = {
+            tictactoe: tictactoeRef.current
+        };
+        initialize(container, components);
         animate();
         return ()=>{
             terminate();
@@ -13,7 +19,9 @@ export default function Cube(){
     }, [])
     return (
         <>
-            <div id="viewer"></div>
+            <div id="viewer">
+                <TicTacToe ref={tictactoeRef}/>
+            </div>
         </>
     )
 }
